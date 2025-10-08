@@ -1,4 +1,3 @@
-//import java.lang.classfile.attribute.SourceDebugExtensionAttribute;
 
 import java.util.Scanner;
 
@@ -64,7 +63,7 @@ public class JuegoCalculadora {
         return valorObjetivo;
     }
 
-    //Función para comprobar si el valor es válido
+    //Función para comprobar si el número escogido es válido
     public static boolean checkIfValid(int lastNumber, int currentNumber) {
 
         boolean validNumber;
@@ -116,13 +115,15 @@ public class JuegoCalculadora {
                 Scanner sc = new Scanner(System.in);
                 lastNumber = sc.nextInt();
                 accumulatedNumber = lastNumber;
-                System.out.println("El valor acumulado actual es " + accumulatedNumber);
                 turnNumber++;
                 nextPlayer = player2;
                 System.out.println("Turno " + turnNumber);
             }
             if (nextPlayer.equals(player2) && numberPlayers == 2) {
                 while (!validNumber) {
+                    System.out.println("El valor objetivo es " + valorObjetivo);
+                    System.out.println("El valor acumulado actual es " + accumulatedNumber);
+                    System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player2 + " escoge un numero entre 1 y 9");
                     Scanner sc = new Scanner(System.in);
                     currentNumber = sc.nextInt();
@@ -130,10 +131,8 @@ public class JuegoCalculadora {
                 }
                 lastNumber = currentNumber;
                 accumulatedNumber = accumulatedNumber + lastNumber;
-                System.out.println("El valor acumulado actual es " + accumulatedNumber);
                 turnNumber++;
                 nextPlayer = player1;
-
                 validNumber = false;
                 if (accumulatedNumber >= valorObjetivo) {
                     winnerPlayer = player1;
@@ -143,6 +142,9 @@ public class JuegoCalculadora {
             }
             if (nextPlayer.equals(player2) && numberPlayers == 3) {
                 while (!validNumber) {
+                    System.out.println("El valor objetivo es " + valorObjetivo);
+                    System.out.println("El valor acumulado actual es " + accumulatedNumber);
+                    System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player2 + " escoge un numero entre 1 y 9");
                     Scanner sc = new Scanner(System.in);
                     currentNumber = sc.nextInt();
@@ -150,10 +152,8 @@ public class JuegoCalculadora {
                 }
                 lastNumber = currentNumber;
                 accumulatedNumber = accumulatedNumber + lastNumber;
-                System.out.println("El valor acumulado actual es " + accumulatedNumber);
                 turnNumber++;
                 nextPlayer = player3;
-
                 validNumber = false;
                 if (accumulatedNumber >= valorObjetivo) {
                     winnerPlayer = player1;
@@ -163,6 +163,9 @@ public class JuegoCalculadora {
             }
             if (nextPlayer.equals(player3)) {
                 while (!validNumber) {
+                    System.out.println("El valor objetivo es " + valorObjetivo);
+                    System.out.println("El valor acumulado actual es " + accumulatedNumber);
+                    System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player3 + " escoge un numero entre 1 y 9");
                     Scanner sc = new Scanner(System.in);
                     currentNumber = sc.nextInt();
@@ -170,7 +173,6 @@ public class JuegoCalculadora {
                 }
                 lastNumber = currentNumber;
                 accumulatedNumber = accumulatedNumber + lastNumber;
-                System.out.println("El valor acumulado actual es " + accumulatedNumber);
                 turnNumber++;
                 nextPlayer = player1;
 
@@ -183,6 +185,9 @@ public class JuegoCalculadora {
             }
             if (nextPlayer.equals(player1) && numberPlayers == 3) {
                 while (!validNumber) {
+                    System.out.println("El valor objetivo es " + valorObjetivo);
+                    System.out.println("El valor acumulado actual es " + accumulatedNumber);
+                    System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player1 + " escoge un numero entre 1 y 9");
                     Scanner sc = new Scanner(System.in);
                     currentNumber = sc.nextInt();
@@ -190,10 +195,8 @@ public class JuegoCalculadora {
                 }
                 lastNumber = currentNumber;
                 accumulatedNumber = accumulatedNumber + lastNumber;
-                System.out.println("El valor acumulado actual es " + accumulatedNumber);
                 turnNumber++;
                 nextPlayer = player2;
-
                 validNumber = false;
                 if (accumulatedNumber >= valorObjetivo) {
                     winnerPlayer = player3;
@@ -203,6 +206,9 @@ public class JuegoCalculadora {
             }
             if (nextPlayer.equals(player1) && numberPlayers == 2) {
                 while (!validNumber) {
+                    System.out.println("El valor objetivo es " + valorObjetivo);
+                    System.out.println("El valor acumulado actual es " + accumulatedNumber);
+                    System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player1 + " escoge un numero entre 1 y 9");
                     Scanner sc = new Scanner(System.in);
                     currentNumber = sc.nextInt();
@@ -210,7 +216,6 @@ public class JuegoCalculadora {
                 }
                 lastNumber = currentNumber;
                 accumulatedNumber = accumulatedNumber + lastNumber;
-                System.out.println("El valor acumulado actual es " + accumulatedNumber);
                 turnNumber++;
                 nextPlayer = player2;
                 validNumber = false;
