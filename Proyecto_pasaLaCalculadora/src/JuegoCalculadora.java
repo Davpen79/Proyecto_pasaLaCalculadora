@@ -1,4 +1,4 @@
-
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class JuegoCalculadora {
@@ -19,8 +19,12 @@ public class JuegoCalculadora {
         //Preguntamos cuantos jugadores van a jugar
         while (numberPlayers != 2 && numberPlayers != 3) {
             System.out.println("Cuantos jugadores van a jugar?. Elige 2 o 3");
-            Scanner sa = new Scanner(System.in);
-            numberPlayers = sa.nextInt();
+            try {
+                Scanner sa = new Scanner(System.in);
+                numberPlayers = sa.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Solo puedes introducir los números 2 o 3");
+            }
         }
 
         //Preguntamos los nombres de los jugadores
@@ -46,8 +50,14 @@ public class JuegoCalculadora {
         while (validObjective == false) {
 
             System.out.println(player1 + " escoge un valor objetivo entre 10 y 99.\n" + "Si prefieres que se genere aleatoriamente introduce -1");
-            Scanner sa = new Scanner(System.in);
-            int objetivo = sa.nextInt();
+            int objetivoIntroducido = 0;
+            try {
+                Scanner sa = new Scanner(System.in);
+                objetivoIntroducido = sa.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Solo puedes introducir valores numéricos");
+            }
+            int objetivo = objetivoIntroducido;
 
             if (objetivo == -1) {
                 double valorObjetivoDouble = (11 + 88 * Math.random());
@@ -110,11 +120,25 @@ public class JuegoCalculadora {
         String winnerPlayer;
         while (true) {
             if (turnNumber == 1) {
-                System.out.println("Turno " + turnNumber);
-                System.out.println(player1 + " escoge un numero entre 1 y 9");
-                Scanner sc = new Scanner(System.in);
-                lastNumber = sc.nextInt();
-                accumulatedNumber = lastNumber;
+                boolean validFirstNumber = false;
+                while (!validFirstNumber) {
+                    System.out.println("Turno " + turnNumber);
+                    System.out.println(player1 + " escoge un numero entre 1 y 9");
+                    try {
+                        Scanner sc = new Scanner(System.in);
+                        lastNumber = sc.nextInt();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Solo puedes introducir valores numéricos");
+                        validFirstNumber = false;
+                    }
+                    if (lastNumber >= 1 && lastNumber <= 9) {
+                        accumulatedNumber = lastNumber;
+                        validFirstNumber = true;
+                    } else {
+                        System.out.println("El numero debe estar entre 1 y 9");
+                    }
+
+                }
                 turnNumber++;
                 nextPlayer = player2;
                 System.out.println("Turno " + turnNumber);
@@ -125,8 +149,12 @@ public class JuegoCalculadora {
                     System.out.println("El valor acumulado actual es " + accumulatedNumber);
                     System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player2 + " escoge un numero entre 1 y 9");
-                    Scanner sc = new Scanner(System.in);
-                    currentNumber = sc.nextInt();
+                    try {
+                        Scanner sc = new Scanner(System.in);
+                        currentNumber = sc.nextInt();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Solo puedes introducir valores numéricos");
+                    }
                     validNumber = JuegoCalculadora.checkIfValid(lastNumber, currentNumber);
                 }
                 lastNumber = currentNumber;
@@ -146,8 +174,12 @@ public class JuegoCalculadora {
                     System.out.println("El valor acumulado actual es " + accumulatedNumber);
                     System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player2 + " escoge un numero entre 1 y 9");
-                    Scanner sc = new Scanner(System.in);
-                    currentNumber = sc.nextInt();
+                    try {
+                        Scanner sc = new Scanner(System.in);
+                        currentNumber = sc.nextInt();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Solo puedes introducir valores numéricos");
+                    }
                     validNumber = JuegoCalculadora.checkIfValid(lastNumber, currentNumber);
                 }
                 lastNumber = currentNumber;
@@ -167,15 +199,18 @@ public class JuegoCalculadora {
                     System.out.println("El valor acumulado actual es " + accumulatedNumber);
                     System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player3 + " escoge un numero entre 1 y 9");
-                    Scanner sc = new Scanner(System.in);
-                    currentNumber = sc.nextInt();
+                    try {
+                        Scanner sc = new Scanner(System.in);
+                        currentNumber = sc.nextInt();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Solo puedes introducir valores numéricos");
+                    }
                     validNumber = JuegoCalculadora.checkIfValid(lastNumber, currentNumber);
                 }
                 lastNumber = currentNumber;
                 accumulatedNumber = accumulatedNumber + lastNumber;
                 turnNumber++;
                 nextPlayer = player1;
-
                 validNumber = false;
                 if (accumulatedNumber >= valorObjetivo) {
                     winnerPlayer = player2;
@@ -189,8 +224,12 @@ public class JuegoCalculadora {
                     System.out.println("El valor acumulado actual es " + accumulatedNumber);
                     System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player1 + " escoge un numero entre 1 y 9");
-                    Scanner sc = new Scanner(System.in);
-                    currentNumber = sc.nextInt();
+                    try {
+                        Scanner sc = new Scanner(System.in);
+                        currentNumber = sc.nextInt();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Solo puedes introducir valores numéricos");
+                    }
                     validNumber = JuegoCalculadora.checkIfValid(lastNumber, currentNumber);
                 }
                 lastNumber = currentNumber;
@@ -210,8 +249,12 @@ public class JuegoCalculadora {
                     System.out.println("El valor acumulado actual es " + accumulatedNumber);
                     System.out.println("El ultimo numero escogido es " + lastNumber);
                     System.out.println(player1 + " escoge un numero entre 1 y 9");
-                    Scanner sc = new Scanner(System.in);
-                    currentNumber = sc.nextInt();
+                    try {
+                        Scanner sc = new Scanner(System.in);
+                        currentNumber = sc.nextInt();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Solo puedes introducir valores numéricos");
+                    }
                     validNumber = JuegoCalculadora.checkIfValid(lastNumber, currentNumber);
                 }
                 lastNumber = currentNumber;
@@ -232,6 +275,9 @@ public class JuegoCalculadora {
         Scanner sc = new Scanner(System.in);
         int resetOption = sc.nextInt();
         if (resetOption == 1) {
+            lastNumber = 0;
+            currentNumber = 0;
+            accumulatedNumber = 0;
             valorObjetivo = JuegoCalculadora.getValorObjetivo(player1, valorObjetivo);
             JuegoCalculadora.playTurn(numberPlayers, player1, player2, player3, valorObjetivo, lastNumber, currentNumber, validNumber, accumulatedNumber);
         } else {
