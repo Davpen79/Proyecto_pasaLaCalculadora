@@ -38,15 +38,16 @@ public class JuegoCalculadora {
             player3 = sa.nextLine();
         }
 
-        valorObjetivo = JuegoCalculadora.getValorObjetivo(player1, valorObjetivo);
+        valorObjetivo = JuegoCalculadora.getValorObjetivo(player1);
         JuegoCalculadora.playTurn(numberPlayers, player1, player2, player3, valorObjetivo, lastNumber, currentNumber, validNumber, accumulatedNumber);
     }
 
     //Funciones
 
     //Función para obtener y comprobar si es valido el valor Objetivo
-    public static int getValorObjetivo(String player1, int valorObjetivo) {
+    public static int getValorObjetivo(String player1) {
         boolean validObjective = false;
+        int valorObjetivo = 0;
         while (validObjective == false) {
 
             System.out.println(player1 + " escoge un valor objetivo entre 10 y 99.\n" + "Si prefieres que se genere aleatoriamente introduce -1");
@@ -278,7 +279,7 @@ public class JuegoCalculadora {
             lastNumber = 0;
             currentNumber = 0;
             accumulatedNumber = 0;
-            valorObjetivo = JuegoCalculadora.getValorObjetivo(player1, valorObjetivo);
+            valorObjetivo = JuegoCalculadora.getValorObjetivo(player1);
             JuegoCalculadora.playTurn(numberPlayers, player1, player2, player3, valorObjetivo, lastNumber, currentNumber, validNumber, accumulatedNumber);
         } else {
             System.out.println("Gracias por jugar!");
