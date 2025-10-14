@@ -66,7 +66,11 @@ public class JuegoCalculadora {
 
     //Funciones
 
-    //Función para obtener y comprobar si es válido el valor Objetivo
+    /**
+     * Función para obtener y comprobar si es válido el valor Objetivo
+     * @param player1
+     * @return Retorna el valor Objetivo para ganar el juego
+     */
     public static int getValorObjetivo(String player1) {
         boolean validObjective = false;
         int valorObjetivo = 0;
@@ -95,7 +99,12 @@ public class JuegoCalculadora {
         return valorObjetivo;
     }
 
-    //Función para comprobar si el número escogido en cada turno es válido
+    /**
+     * Función para comprobar si el número escogido en cada turno es válido
+     * @param lastNumber
+     * @param currentNumber
+     * @return True si es valido, manda un mensaje de error si es invalido
+     */
     public static boolean checkIfValid(int lastNumber, int currentNumber) {
 
         boolean validNumber;
@@ -127,7 +136,12 @@ public class JuegoCalculadora {
         return validNumber;
     }
 
-    //Función que comprueba si se cumple la condición de victoria
+    /**
+     * Función que comprueba si se cumple la condición de victoria
+     * @param accumulatedNumber
+     * @param valorObjetivo
+     * @return True si se ha acabado el juego, False si no se ha alcanzado el objetivo
+     */
     public static boolean checkWin(int accumulatedNumber, int valorObjetivo) {
 
         if (accumulatedNumber >= valorObjetivo) {
@@ -136,7 +150,17 @@ public class JuegoCalculadora {
             return false;
         }
     }
-    //Función para obtener el jugador que juega el siguiente turno
+
+    /**
+     * Función para obtener el jugador que juega el siguiente turno
+     * @param numberPlayers
+     * @param nextPlayer
+     * @param currentPlayer
+     * @param player1
+     * @param player2
+     * @param player3
+     * @return Retorna el jugador que juega el siguiente turno en funcion del número de jugadores que iniciaron la partida
+     */
     public static String getNextPlayer(int numberPlayers, String nextPlayer, String currentPlayer, String player1, String player2, String player3) {
 
         if (numberPlayers == 2) {
@@ -156,7 +180,17 @@ public class JuegoCalculadora {
         }
         return nextPlayer;
     }
-    //Función para obtener el jugador del turno anterior (usada para saber el jugador ganador)
+
+    /**
+     * Función para obtener el jugador del turno anterior (usada para saber el jugador ganador)
+     * @param numberPlayers
+     * @param lastPlayer
+     * @param currentPlayer
+     * @param player1
+     * @param player2
+     * @param player3
+     * @return Retorna el nombre del jugador que ha jugado el turno anterior
+     */
     public static String getLastPlayer(int numberPlayers, String lastPlayer, String currentPlayer, String player1, String player2, String player3) {
 
         if (numberPlayers == 2) {
@@ -176,7 +210,18 @@ public class JuegoCalculadora {
         }
         return lastPlayer;
     }
-    //Función para proporcionar la información en cada turno y también para pedirle un valor al jugador
+
+    /**
+     * Función para proporcionar la información en cada turno y también para pedirle un valor al jugador
+     * @param validNumber
+     * @param turnNumber
+     * @param valorObjetivo
+     * @param accumulatedNumber
+     * @param lastNumber
+     * @param currentPlayer
+     * @param currentNumber
+     * @return Retorna el último número jugado
+     */
     public static int getCurrentNumber(boolean validNumber, int turnNumber, int valorObjetivo, int accumulatedNumber, int lastNumber, String currentPlayer, int currentNumber) {
         while (!validNumber) {
             System.out.println("========== " + "Turno " + turnNumber + " ==========");
@@ -194,7 +239,24 @@ public class JuegoCalculadora {
         }
         return currentNumber;
     }
-    //Función principal del juego
+
+    /**
+     * Función principal que desarrolla el juego
+     * @param accumulatedNumber
+     * @param lastNumber
+     * @param currentNumber
+     * @param validNumber
+     * @param turnNumber
+     * @param valorObjetivo
+     * @param numberPlayers
+     * @param player1
+     * @param player2
+     * @param player3
+     * @param nextPlayer
+     * @param checkWin
+     * @param currentPlayer
+     * @param lastPlayer
+     */
     public static void playGame(int accumulatedNumber, int lastNumber, int currentNumber, boolean validNumber, int turnNumber, int valorObjetivo, int numberPlayers, String player1, String player2, String player3, String nextPlayer, boolean checkWin, String currentPlayer, String lastPlayer) {
         nextPlayer = player1;
         while (!checkWin) {
