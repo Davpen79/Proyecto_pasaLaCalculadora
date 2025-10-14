@@ -68,7 +68,7 @@ public class JuegoCalculadora {
 
     /**
      * Función para obtener y comprobar si es válido el valor Objetivo
-     * @param player1
+     * @param player1 Nombre del jugador 1
      * @return Retorna el valor Objetivo para ganar el juego
      */
     public static int getValorObjetivo(String player1) {
@@ -156,9 +156,9 @@ public class JuegoCalculadora {
      * @param numberPlayers
      * @param nextPlayer
      * @param currentPlayer
-     * @param player1
-     * @param player2
-     * @param player3
+     * @param player1 Nombre del jugador 1
+     * @param player2 Nombre del jugador 2
+     * @param player3 Nombre del jugador 3
      * @return Retorna el jugador que juega el siguiente turno en funcion del número de jugadores que iniciaron la partida
      */
     public static String getNextPlayer(int numberPlayers, String nextPlayer, String currentPlayer, String player1, String player2, String player3) {
@@ -186,9 +186,9 @@ public class JuegoCalculadora {
      * @param numberPlayers
      * @param lastPlayer
      * @param currentPlayer
-     * @param player1
-     * @param player2
-     * @param player3
+     * @param player1 Nombre del jugador 1
+     * @param player2 Nombre del jugador 2
+     * @param player3 Nombre del jugador 3
      * @return Retorna el nombre del jugador que ha jugado el turno anterior
      */
     public static String getLastPlayer(int numberPlayers, String lastPlayer, String currentPlayer, String player1, String player2, String player3) {
@@ -249,9 +249,9 @@ public class JuegoCalculadora {
      * @param turnNumber
      * @param valorObjetivo
      * @param numberPlayers
-     * @param player1
-     * @param player2
-     * @param player3
+     * @param player1 Nombre del jugador 1
+     * @param player2 Nombre del jugador 2
+     * @param player3 Nombre del jugador 3
      * @param nextPlayer
      * @param checkWin
      * @param currentPlayer
